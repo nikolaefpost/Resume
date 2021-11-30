@@ -1,5 +1,16 @@
 .App {
-  text-align: center;
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  margin-bottom: 85px;
+}
+
+
+
+.content{
+  padding: 50px 10vw;
+  background: #E5E5E5;
+text-align: center;
 }
 
 .App-logo {

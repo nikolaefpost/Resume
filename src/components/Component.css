@@ -1,0 +1,84 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 24px 24px 40px rgba(75, 207, 160, 0.08);
+    border-radius: 24px;
+    background: #FFFFFF;
+    padding: 32px;
+    font-family: Inter, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: -0.02em;
+    color: #000000;
+}
+
+.category{
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    opacity: 0.5;
+
+}
+
+.name{
+    font-size: 40px;
+    line-height: 48px;
+    color: #000000;
+    font-style: normal;
+    font-weight: normal;
+    margin: 8px 0;
+}
+
+.price_block{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 32px 0 0 0;
+}
+
+.price_box{
+    display: flex;
+    justify-content: space-between;
+
+    align-items: flex-start;
+}
+
+.dollar_sign{
+    font-size: 30px;
+    line-height: 35px;
+    margin: 10px 6px 0 0;
+}
+
+.price{
+    font-size: 60px;
+    line-height: 72px;
+}
+
+.price_block > input{
+    width: 64px;
+    height: 56px;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.price_block > input:hover{
+    background: #4BCFA0;
+    color: #FFFFFF;
+}
+
+.cheapest{
+    margin: 0 auto;
+    width: 235px;
+    height: 60px;
+    background: #50DAA8;
+    border-radius: 16px;
+    color: #FFFFFF;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: -0.02em;
+    border: none;
+}
+
+
