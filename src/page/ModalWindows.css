@@ -69,21 +69,23 @@
     height: 56px;
     box-sizing: border-box;
     border-radius: 16px;
-    margin-top: 16px;
+    margin-top: 8px;
     font-size: 16px;
     line-height: 24px;
     letter-spacing: 0.04em;
     padding: 16px;
+
 }
 
 .modal_content > form >input[type="text"]{
-
+    border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .modal_content > form >input[type="submit"]{
     border: none;
     background: #4BCFA0;
     color: #FFFFFF;
+    margin-top: 16px;
 }
 
 .error_text{

@@ -2,7 +2,6 @@ import React from 'react';
 import './Component.css'
 
 const ItemProduct = ({product, onClick}) => {
-    console.log(product?.category)
     return (
         <>
         {!!product?.category &&
