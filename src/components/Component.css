@@ -19,7 +19,6 @@
     letter-spacing: 0.04em;
     text-transform: uppercase;
     opacity: 0.5;
-
 }
 
 .name{
@@ -42,7 +41,6 @@
 .price_box{
     display: flex;
     justify-content: space-between;
-
     align-items: flex-start;
 }
 
@@ -82,3 +80,21 @@
 }
 
 
+@media screen and (max-width: 600px) {
+    .container{
+        align-items: center;
+    }
+    .price_block{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 16px;
+    }
+    .price_box{
+        margin-bottom: 8px;
+    }
+    .price_block > input{
+        width: 50vw;
+        height: 40px;
+    }
+}

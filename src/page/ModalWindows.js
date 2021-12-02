@@ -3,6 +3,7 @@ import './ModalWindows.css'
 import '../components/Component.css'
 import Cross from "../components/Cross";
 import InputResult from "../components/InputResult";
+import CrossRed from "../components/CrossRed";
 
 
 const ModalWindows = ({
@@ -16,6 +17,8 @@ const ModalWindows = ({
     const [userPhone, setUserPhone] = useState('')
     const [checkPhone, setCheckPhone] = useState('')
     const [focusPhone, setFocusPhone] = useState(false)
+    console.log(checkPhone)
+
 
 
     const enterName = (e)=>setUserName(e.target.value)
@@ -85,7 +88,7 @@ const ModalWindows = ({
                         <span className="price"> {product?.price}</span>
                     </div>
                     <form onSubmit={submitForm}>
-                        {checkName ==='' ? <input
+                        {checkName ==='' ? <input                            // первый вариант  стилизации input
                             autoFocus={focusName}
                             className="modal_input"
                             type="text"
@@ -106,10 +109,20 @@ const ModalWindows = ({
                             styles={{border: '1px solid green'}}
                         />
                         }
-
                         {checkName && checkName !=='ok' ? <div className="error_text">{checkName}</div>:
                             <div style={{visibility: 'hidden'}} className="error_text">hide text</div>}
-                        {checkPhone === '' ? <input
+
+
+                       <div className="input_block">
+                            {checkPhone && checkPhone !=='ok' && userPhone !=='' &&  // второй вариант  стилизации input
+                            <span
+                                className="red_cross_abs"
+                                onClick={()=>{
+                                    setUserPhone('');
+                                    setCheckPhone('')
+                                }}
+                            ><CrossRed/></span>}
+                            <input
                             autoFocus={focusPhone}
                             className="modal_input"
                             type="text"
@@ -117,19 +130,12 @@ const ModalWindows = ({
                             value={userPhone}
                             onChange={enterPhone}
                             onBlur={checkPhoneBlur}
-                        />: checkPhone !=='ok' ?<InputResult
-                            setCheck={setCheckPhone}
-                            value={userPhone}
-                            setValue={setUserPhone}
-                            setFocus={setFocusPhone}
-                            styles={{border: '1px solid #E43F3F'}}
-                        />: <InputResult
-                            setCheck={setCheckPhone}
-                            value={userPhone}
-                            setFocus={setFocusPhone}
-                            styles={{border: '1px solid green'}}
-                        />
-                        }
+                            onFocus={()=>setCheckPhone('')}
+                            style={!checkPhone ? {border: '1px solid rgba(0, 0, 0, 0.2)'}: checkPhone ==='ok'?
+                                {border: '1px solid green'} : {border: '1px solid #E43F3F'}}
+                            />
+                        </div>
+                        {/*<div style={{visibility: checkPhone && checkPhone !=='ok' ? 'visible' :'hidden' }} className="error_text">{checkPhone}</div>*/}
                         {checkPhone && checkPhone !=='ok' ? <div className="error_text">{checkPhone}</div>:
                             <div style={{visibility: 'hidden'}} className="error_text">hide text</div>}
                         <input type="submit" value="ORDER" className="modal_input"/>
