@@ -79,6 +79,11 @@
     border: none;
 }
 
+.cheapest:hover{
+    background: #FFFFFF;
+    /*border: 1px solid black;*/
+    color: inherit;
+}
 
 @media screen and (max-width: 600px) {
     .container{

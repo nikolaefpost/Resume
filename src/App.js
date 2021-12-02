@@ -15,7 +15,17 @@ function App() {
     const onClose = () => setModal(false)
 
     useEffect(() => {
-        fetch("https://run.mocky.io/v3/b7d36eea-0b3f-414a-ba44-711b5f5e528e")
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+        headers.append('Accept', 'application/json');
+        headers.append('Origin','http://localhost:3000');
+
+        fetch("http://localhost:4000",{
+            mode: 'cors',
+            credentials: 'include',
+            method: 'GET',
+            headers: headers
+        })
             .then(res => res.json())
             .then(
                 (result) => {
@@ -41,14 +51,14 @@ function App() {
                   setModal={setModal}
                   setModalContent={setModalContent}
               />}
-              <ButtonCheapest
+              {!error && <ButtonCheapest
                   onClick={() => {
                       setModal(true)
                       setModalContent(products.reduce((a, b) => a.price < b.price ? a : b))
                   }}
                   products={products}
                   val="Buy cheapest"
-              />
+              />}
           </article>
           <ModalWindows
               visible={isModal}

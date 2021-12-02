@@ -78,7 +78,10 @@
     border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.modal_content > form >input[type="submit"]{
+.modal_content > form > button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: none;
     background: #4BCFA0;
     color: #FFFFFF;
@@ -116,6 +119,9 @@
     right: 16px;
 }
 
+.arrow{
+    margin: 4px 0 0 8px;
+}
 @media screen and (max-width: 599px) {
     .modal_dialog {
         width: 80vw;

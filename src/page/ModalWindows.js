@@ -4,6 +4,7 @@ import '../components/Component.css'
 import Cross from "../components/Cross";
 import InputResult from "../components/InputResult";
 import CrossRed from "../components/CrossRed";
+import ButtonOrder from "../components/ButtonOrder";
 
 
 const ModalWindows = ({
@@ -17,9 +18,6 @@ const ModalWindows = ({
     const [userPhone, setUserPhone] = useState('')
     const [checkPhone, setCheckPhone] = useState('')
     const [focusPhone, setFocusPhone] = useState(false)
-    console.log(checkPhone)
-
-
 
     const enterName = (e)=>setUserName(e.target.value)
     const enterPhone = (e)=>setUserPhone(e.target.value)
@@ -45,10 +43,25 @@ const ModalWindows = ({
 
     const submitForm = (e)=>{
         e.preventDefault();
-        checkNameBlur();
-        checkPhoneBlur();
+        const user = {
+            name: userName,
+            phone: userPhone
+        }
        if (checkName==='ok' && checkPhone==='ok') {
-           console.log(userName, userPhone)
+           fetch('http://localhost:4000/purchase', {
+               method: 'POST',
+               mode: 'cors',
+               credentials: 'include',
+               headers: {
+                   'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+               },
+               body: JSON.stringify(user),
+
+           }).then(function(response) {
+                   return response.json()
+               }).then(function(body) {
+               console.log(body);
+           });
        }
     }
 
@@ -106,7 +119,7 @@ const ModalWindows = ({
                             setCheck={setCheckName}
                             value={userName}
                             setFocus={setFocusName}
-                            styles={{border: '1px solid green'}}
+                            styles={{border: '1px solid #4BCFA0'}}
                         />
                         }
                         {checkName && checkName !=='ok' ? <div className="error_text">{checkName}</div>:
@@ -132,13 +145,13 @@ const ModalWindows = ({
                             onBlur={checkPhoneBlur}
                             onFocus={()=>setCheckPhone('')}
                             style={!checkPhone ? {border: '1px solid rgba(0, 0, 0, 0.2)'}: checkPhone ==='ok'?
-                                {border: '1px solid green'} : {border: '1px solid #E43F3F'}}
+                                {border: '1px solid #4BCFA0'} : {border: '1px solid #E43F3F'}}
                             />
                         </div>
                         {/*<div style={{visibility: checkPhone && checkPhone !=='ok' ? 'visible' :'hidden' }} className="error_text">{checkPhone}</div>*/}
                         {checkPhone && checkPhone !=='ok' ? <div className="error_text">{checkPhone}</div>:
                             <div style={{visibility: 'hidden'}} className="error_text">hide text</div>}
-                        <input type="submit" value="ORDER" className="modal_input"/>
+                        <ButtonOrder/>
                     </form>
                 </div>
             </div>
