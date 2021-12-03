@@ -43,6 +43,8 @@ const ModalWindows = ({
 
     const submitForm = (e)=>{
         e.preventDefault();
+        checkNameBlur();
+        checkPhoneBlur();
         const user = {
             name: userName,
             phone: userPhone
