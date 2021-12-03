@@ -55,11 +55,12 @@ const ModalWindows = ({
                mode: 'cors',
                credentials: 'include',
                headers: {
-                   'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+                   'Content-Type': 'application/json'
                },
                body: JSON.stringify(user),
 
-           }).then(function(response) {
+           })
+               .then(function(response) {
                    return response.json()
                }).then(function(body) {
                console.log(body);

@@ -47,11 +47,13 @@ let data = [
 ]
 
 app.use(function (req, res, next) {
-    res.header('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+    res.header('Content-Type', 'application/json');
     next();
 });
-app.use(function (req, res, next) {
-    res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
     next();
 });
 app.use(function (req, res, next) {
@@ -64,7 +66,7 @@ app.get('/', (req, res) => {
 })
 
 
-app.use(express.urlencoded({extended: true}))
+app.use(express.json())
 
 
 app.post('/purchase', function (req, res) {
