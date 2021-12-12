@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import ArrowRight from "./Arrow_right";
+import ArrowRight from "./ArrowRight";
+import modal from "../page/ModalWindows.module.css"
 
 const ButtonOrder = () => {
     const [hover, setHover] = useState(false)
@@ -7,9 +8,9 @@ const ButtonOrder = () => {
         <>
             <button onMouseOver={() => setHover(true)}
                     onMouseOut={() => setHover(false)}
-                    type="submit"  className="modal_input">
+                    type="submit"  className={modal.modal_input}>
                 <span>ORDER</span>
-                 <span className="arrow" style={{ display: hover ? 'block' : 'none'} }
+                 <span className={modal.arrow} style={{ display: hover ? 'block' : 'none'} }
                 ><ArrowRight/></span>
             </button>
         </>

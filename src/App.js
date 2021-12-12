@@ -1,11 +1,13 @@
 
-import './App.css';
+import styles from './App.css';
 import React, {useEffect, useState} from "react";
 import ButtonCheapest from "./components/ButtonCheapest";
 import ModalWindows from "./page/ModalWindows";
 import ListProducts from "./components/ListProducts";
+import {Clock} from "./components/Temp";
 
 function App() {
+    console.log(styles)
     const [products, setProducts] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);
     const [error, setError] = useState(null);
@@ -16,7 +18,7 @@ function App() {
 
     useEffect(() => {
         let headers = new Headers();
-        headers.append('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+        // headers.append('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
         headers.append('Accept', 'application/json');
         headers.append('Origin','http://localhost:3000');
 
@@ -41,7 +43,7 @@ function App() {
 
 
   return (<>
-          <article className="content">
+          <article className={styles.content}>
               {!isLoaded && <div> Загрузка...</div>}
 
               {!!error && <div>Ошибка: {error.message}</div>}
@@ -60,6 +62,7 @@ function App() {
                   val="Buy cheapest"
               />}
           </article>
+          <Clock/>
           <ModalWindows
               visible={isModal}
               product={modalContent}
@@ -69,4 +72,4 @@ function App() {
   );
 }
 
-export default App;
+export default App ;

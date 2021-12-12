@@ -1,10 +1,10 @@
 import React from 'react';
-import './Component.css'
+import styles from  './Component.module.css'
 
 const ButtonCheapest = ({val, onClick}) => {
     return (
         <>
-            <input className="cheapest" type="button" value={val} onClick={onClick}/>
+            <input className={styles.cheapest} type="button" value={val} onClick={onClick}/>
         </>
     );
 };

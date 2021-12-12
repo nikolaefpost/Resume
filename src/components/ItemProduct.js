@@ -1,17 +1,17 @@
 import React from 'react';
-import './Component.css'
+import styles from  './Component.module.css'
 
 const ItemProduct = ({product, onClick}) => {
     return (
         <>
         {!!product?.category &&
-        <figure className="container">
-            <div className="category">{product?.category}</div>
-            <div className="name">{product?.name[0].toUpperCase() + product?.name.slice(1)}</div>
-            <div className="price_block">
-                <div className="price_box">
-                    <span className="dollar_sign">$</span>
-                    <span className="price"> {product?.price}</span>
+        <figure className={styles.container}>
+            <div className={styles.category}>{product?.category}</div>
+            <div className={styles.name}>{product?.name[0].toUpperCase() + product?.name.slice(1)}</div>
+            <div className={styles.price_block}>
+                <div className={styles.price_box}>
+                    <span className={styles.dollar_sign}>$</span>
+                    <span className={styles.price}> {product?.price}</span>
 
                 </div>
                 <input type="button"  onClick={onClick} value="BUY"/>

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import './ModalWindows.css'
-import '../components/Component.css'
+import modal from './ModalWindows.module.css'
+import styles from  '../components/Component.module.css'
 import Cross from "../components/Cross";
 import InputResult from "../components/InputResult";
 import CrossRed from "../components/CrossRed";
@@ -93,20 +93,20 @@ const ModalWindows = ({
 
     if (!visible) return null;
     return (
-        <div className='modal' >
-            <div className='modal_dialog' onClick={e => e.stopPropagation()}>
-                <div className="modal_close" onClick={onClose}><Cross/></div>
-                <div className="modal_content">
-                    <div className="category">{product.category}</div>
-                    <div className="name">{product.name}</div>
-                    <div className="price_box">
-                        <span className="dollar_sign">$</span>
-                        <span className="price"> {product?.price}</span>
+        <div className={modal.modal} >
+            <div className={modal.modal_dialog} onClick={e => e.stopPropagation()}>
+                <div className={modal.modal_close} onClick={onClose}><Cross/></div>
+                <div className={modal.modal_content}>
+                    <div className={styles.category}>{product.category}</div>
+                    <div className={styles.name}>{product.name}</div>
+                    <div className={styles.price_box}>
+                        <span className={styles.dollar_sign}>$</span>
+                        <span className={styles.price}> {product?.price}</span>
                     </div>
                     <form onSubmit={submitForm}>
                         {checkName ==='' ? <input                            // первый вариант  стилизации input
                             autoFocus={focusName}
-                            className="modal_input"
+                            className={modal.modal_input}
                             type="text"
                             placeholder="Name"
                             value={userName}
@@ -129,10 +129,10 @@ const ModalWindows = ({
                             <div style={{visibility: 'hidden'}} className="error_text">hide text</div>}
 
 
-                       <div className="input_block">
+                       <div className={modal.input_block}>
                             {checkPhone && checkPhone !=='ok' && userPhone !=='' &&  // второй вариант  стилизации input
                             <span
-                                className="red_cross_abs"
+                                className={modal.red_cross_abs}
                                 onClick={()=>{
                                     setUserPhone('');
                                     setCheckPhone('')
@@ -140,7 +140,7 @@ const ModalWindows = ({
                             ><CrossRed/></span>}
                             <input
                             autoFocus={focusPhone}
-                            className="modal_input"
+                            className={modal.modal_input}
                             type="text"
                             placeholder="Number"
                             value={userPhone}
@@ -152,8 +152,8 @@ const ModalWindows = ({
                             />
                         </div>
                         {/*<div style={{visibility: checkPhone && checkPhone !=='ok' ? 'visible' :'hidden' }} className="error_text">{checkPhone}</div>*/}
-                        {checkPhone && checkPhone !=='ok' ? <div className="error_text">{checkPhone}</div>:
-                            <div style={{visibility: 'hidden'}} className="error_text">hide text</div>}
+                        {checkPhone && checkPhone !=='ok' ? <div className={modal.error_text}>{checkPhone}</div>:
+                            <div style={{visibility: 'hidden'}} className={modal.error_text}>hide text</div>}
                         <ButtonOrder/>
                     </form>
                 </div>
