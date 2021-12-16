@@ -1,6 +1,6 @@
 import React from 'react';
 import ItemProduct from "./ItemProduct";
-import styles from "../App.css"
+import styles from "../App.module.css"
 
 const ListProducts = ({products, setModal, setModalContent}) => {
     return (

@@ -1,5 +1,5 @@
 
-import styles from './App.css';
+import styles from './App.module.css';
 import React, {useEffect, useState} from "react";
 import ButtonCheapest from "./components/ButtonCheapest";
 import ModalWindows from "./page/ModalWindows";
