@@ -62,7 +62,6 @@ function App() {
                   val="Buy cheapest"
               />}
           </article>
-          <Clock/>
           <ModalWindows
               visible={isModal}
               product={modalContent}
